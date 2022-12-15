@@ -16,14 +16,15 @@ const Player = (props) => {
     } else {
       navigate("/songs");
     }
+    console.log(title, link);
   }, []);
   return (
     <div className="modal">
       <div className="box">
         <div className="heading">
-          <Link to="/songs">
-            <span className="float-start badge bg-secondary pointer">X</span>
-          </Link>
+          <span className="float-start badge bg-secondary pointer">
+            <Link to="/songs">X</Link>
+          </span>
           <span className="title">{title}</span>
         </div>
         <div className="player">
@@ -35,7 +36,7 @@ const Player = (props) => {
                 height: "240",
                 playerVars: { autoplay: 1 },
               }}
-            ></YouTube>
+            />
           </div>
         </div>
       </div>
