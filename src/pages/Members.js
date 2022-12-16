@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router-dom";
 const Members = (props) => {
+  const navigate = useNavigate();
+  const goHome = () => {
+    if (window.confirm("홈으로 이동하시겠습니까?")) {
+      navigate("/", { state: { from: "/members" } });
+    }
+  };
   const imgSize = { width: 90, height: 90 };
   const list = props.members.map((item, index) => {
     return (
@@ -18,6 +25,9 @@ const Members = (props) => {
       <div className="container">
         <div className="row">{list}</div>
       </div>
+      <button className="btn btn-primary" onClick={goHome}>
+        Go Home
+      </button>
     </div>
   );
 };
